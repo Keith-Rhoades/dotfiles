@@ -46,29 +46,29 @@ set $right semicolon
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec alacritty
-bindsym Mod1+Shift+Return exec terminator
+bindsym Mod1+Return exec termite
+bindsym Mod1+Shift+Return exec alacritty
 # kill focused window
 bindsym Mod1+Shift+q kill
 
 #Keith's app bindings
-bindsym Mod1+b exec --no-startup-id brave
+bindsym Mod1+b exec --no-startup-id brave-nightly
 bindsym Mod1+Shift+b exec --no-startup-id firefox
 bindsym Mod1+p exec --no-startup-id pcmanfm
-bindsym Mod1+Shift+p exec alacritty -e ranger
+bindsym Mod1+Shift+p exec termite -e ranger
 bindsym Mod1+o exec --no-startup-id thunderbird
 bindsym Mod1+t exec --no-startup-id subl3
 bindsym Mod1+Shift+t exec --no-startup-id code
 bindsym Mod1+n exec --no-startup-id nitrogen
-bindsym Mod1+Shift+d exec --no-startup-id rofi -show drun -theme Adapta-Nokto.rasi
-bindsym Mod1+x exec i3lock-multimonitor -i ~/Wallpapers/archbat.png
+bindsym Mod1+Shift+d exec --no-startup-id rofi -show drun -theme Arc-Dark.rasi
+bindsym Mod1+x exec i3lock -i ~/wallpapersKR/archbat.png
 bindsym Mod1+m exec --no-startup-id spotify
 # start dmenu (a program launcher)
-#bindsym Mod1+d exec dmenu_run
+bindsym Mod1+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym Mod1+d exec --no-startup-id j4-dmenu-desktop
+#bindsym Mod1+d exec --no-startup-id j4-dmenu-desktop
 
 # change focus
 bindsym Mod1+$left focus left
@@ -176,7 +176,8 @@ bindsym Mod1+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exi#t shortcut. Do you really want to exit i3? This will end your X session#.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod1+Shift+e exec arcolinux-logout
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -208,12 +209,16 @@ bindsym Mod1+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+	height 25
+	workspace_buttons yes
+	font pango:Noto Sans 12
+        status_command i3status -c ~/.config/i3/i3status.conf
+	#status_command i3blocks -c ~/.config/i3/i3blocks-awesome.conf
 	position top
      colors {
 	background #000000
-	statusline #388E8E
-	separator  #388E8E
+	statusline #1793D1
+	separator  #1793D1
     }
 }
 
@@ -229,11 +234,11 @@ smart_gaps on
 
 #Auto-start Apps
 
-exec --no-startup-id ~/.screenlayout/dualhead.sh
+#exec --no-startup-id ~/.screenlayout/dualhead.sh
 
 exec --no-startup-id nitrogen --restore
 
-exec --no-startup-id dunst
+exec --no-startup-id dunst &
 
 #exec alacritty -e espeak &> /dev/null "Welcome to the machine, where all your dreams will be manifested" &
 
@@ -246,6 +251,12 @@ exec --no-startup-id pasystray
 #exec --no-startup-id alacritty -e ~/Scripts/setbg ~/wallpapers/Future/ &
 
 exec --no-startup-id lxpolkit
+
+exec --no-startup-id pamac-tray
+
+exec --no-startup-id xscreensaver -nosplash
+
+#exec --no-startup-id xfce4-power-manager
 
 # eliminates title bars
 for_window [class="^.*"] border pixel 1
