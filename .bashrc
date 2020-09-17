@@ -70,4 +70,11 @@ alias ls="exa --group-directories-first"
 alias ud="sudo pacman -Syyu"
 alias rc="vim ~/.bashrc"
 alias i3="vim ~/.config/i3/config"
+
+## trash-cli
+#alias tp="trash-put"
+#alias tl="trash-list"
+#alias tr="trash-restore"
+#alias te="trash-empty"
+
 export PATH=/home/keith/Scripts:$PATH

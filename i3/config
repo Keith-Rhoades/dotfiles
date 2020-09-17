@@ -216,7 +216,7 @@ bar {
 	#status_command i3blocks -c ~/.config/i3/i3blocks-awesome.conf
 	position top
      colors {
-	background #000000
+	background #393939
 	statusline #1793D1
 	separator  #1793D1
     }
