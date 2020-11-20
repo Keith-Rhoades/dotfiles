@@ -32,6 +32,7 @@ run "numlockx on"
 run "pasystray"
 run slstatus &
 sxhkd -c ~/.config/arco-dwm/sxhkd/sxhkdrc &
+run "xscreensaver -nosplash"
 #run "nitrogen --restore"
 #run "conky -c $HOME/.config/arco-dwm/system-overview"
 #you can set wallpapers in themes as well

@@ -166,7 +166,7 @@ super + shift + m
 
 #arcolinux-welcome-app
 ctrl + alt + w
-     arcolinux-welcome-app
+     termite -e /home/keith/Scripts/wal.sh &
 
 #arcolinux-tweak-tool
 ctrl + alt + e
